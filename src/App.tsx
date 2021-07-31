@@ -1,12 +1,18 @@
 import React from 'react';
 import fetch from './fetch';
-import Row from './Row';
+import { Menu, Banner, Row } from './component';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
-      <Row title="Trending Now" fetchURL={fetch.trending}/>
+      <h1>NerdFlix</h1>
+      <Menu />
+      <Banner />
+      <Row title="Trending" fetchURL={fetch.trending} isBackdrop={false} />
+      <Row title="Top Rated" fetchURL={fetch.topRated} isBackdrop={true} />
+      <Row title="Action" fetchURL={fetch.action} isBackdrop={true} />
+      <Row title="Horror" fetchURL={fetch.horror} isBackdrop={true} />
+      <Row title="Comedy" fetchURL={fetch.comedy} isBackdrop={true} />
     </div>
   );
 }

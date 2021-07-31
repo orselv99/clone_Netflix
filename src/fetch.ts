@@ -12,10 +12,10 @@ const fetch = {
   trending: `/trending/all/week?api_key=${API_KEY}&language="ko"`,
   topRated: `/trending/all/week?api_key=${API_KEY}&language="ko"`,
   // genres
-  horror: `/trending/all/week?api_key=${API_KEY}&with_genres=27&language="ko"`,
+  horror: `/discover/movie?api_key=${API_KEY}&with_genres=27&language="ko"`,
   action: `/discover/movie?api_key=${API_KEY}&with_genres=28&language="ko"`,
-  comedy: `/trending/all/week?api_key=${API_KEY}&with_genres=35&language="ko"`,
-  romance: `/trending/all/week?api_key=${API_KEY}&with_genres=10749&language="ko"`,
+  comedy: `/discover/movie?api_key=${API_KEY}&with_genres=35&language="ko"`,
+  romance: `/tdiscover/movie?api_key=${API_KEY}&with_genres=10749&language="ko"`,
 
 };
 
