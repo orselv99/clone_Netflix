@@ -1,3 +1,6 @@
+.row_title {
+  color: white;
+}
 .row_poster_container {
   display: flex;
 }
