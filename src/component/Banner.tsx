@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { ComponentParameters, ContentTypes } from "../type";
 import { axiosInstance, IMG_BASE_URL } from "../service";
-
+import "./Banner.css";
 
 export const Banner = (param: ComponentParameters) => {
   const [data, setData] = useState<ContentTypes>();
