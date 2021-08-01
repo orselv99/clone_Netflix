@@ -1,0 +1,30 @@
+.navigator {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  height: 30px;
+  
+  display: flex;
+  justify-content: space-between;
+}
+.navigator_show_handler {
+  background-color: #111;
+}
+.navigator_logo {
+  position: fixed;
+  left: 20px;
+  width: 100px;
+  object-fit: contain;
+}
+.navigator_menu_center {
+  position: fixed;
+  left: 200px;
+  object-fit: contain;
+}
+.navigator_menu_right {
+  position: fixed;
+  right: 20px;
+  object-fit: contain;
+}
+

@@ -28,7 +28,7 @@ export const Row = (param: ComponentParameters): any => {
         {data.map((item) => {
           return (
             <img
-              className="row_poster"
+              className={(param.isBackdrop === false)? "row_poster" : "row_backdrop_poster"}
               src={`${IMG_BASE_URL}${(param.isBackdrop === false) ? item.poster_path : item.backdrop_path }`}
               alt={item.original_title} 
             />
