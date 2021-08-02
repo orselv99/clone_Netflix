@@ -19,6 +19,17 @@
   width: 100px;
   object-fit: contain;
 }
+.navigator_list {
+  display: flex;
+  position: fixed;
+  list-style: none;
+  right: 20px;
+  object-fit: contain;
+  width: 100%;
+  height: 30px;
+  filter: contrast(0)
+}
+
 /* .navigator_menu_center {
   position: fixed;
   left: 200px;

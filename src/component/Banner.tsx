@@ -17,7 +17,7 @@ export const Banner = (param: ComponentParameters) => {
      };
 
      getItems();
-  }, []);
+  }, [param.fetchURL]);
 
   //console.log(data);
 

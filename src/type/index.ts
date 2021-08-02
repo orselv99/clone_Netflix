@@ -21,3 +21,7 @@ export type ContentTypes = {
   vote_average: number;
   vote_count: number;
 };
+export type MousePoint = {
+  x: number;
+  y: number;
+};

@@ -14,8 +14,8 @@ export const Navigator = () => {
         setShowBackground(false);
       }
     }
-    //console.log(showBackground);
     window.addEventListener("scroll", scrollListener);
+    //console.log(showBackground);
     return () => window.removeEventListener("scroll", scrollListener);
   });
 
@@ -26,22 +26,12 @@ export const Navigator = () => {
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1920px-Netflix_2015_logo.svg.png"
         alt="Netflix"
       />
-      
-      {/* <div className="navigator_menu_center">
-        <button>Home</button>
-        <button>TV Shows</button>
-        <button>Movies</button>
-        <button>New & Popular</button>
-        <button>My List</button>
+      <div>
+        <img 
+          className="navigator_list"
+          src="https://image.flaticon.com/icons/png/512/633/633816.png"
+        />
       </div>
-      <div className="navigator_menu_right">
-        <button>Search</button>
-        <button>KIDS</button>
-        <button>Shop</button>
-        <button>Alarm</button>
-        <button>Profile</button>
-      </div> */}
-
     </div>
   );
 };
