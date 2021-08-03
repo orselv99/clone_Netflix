@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { axiosInstance, IMG_BASE_URL } from "../service";
 import { ComponentParameters, ContentTypes } from "../type";
-//import { Detail } from "./Detail";
+import { ScrollableContainer } from "./ScrollableContainer"
 import "./Row.css";
 
 export const Row = (param: ComponentParameters): any => {
   const [data, setData] = useState<ContentTypes[]>([]);
-  const [onItem, setOnItem] = useState(false);
-  const [currentData, setCurrentData] = useState<ContentTypes>();
   useEffect(() => {
     const getItems = async () => {
       const request = await axiosInstance.get(param.fetchURL);
@@ -19,20 +17,7 @@ export const Row = (param: ComponentParameters): any => {
      getItems();
   }, [param.fetchURL]);
 
-  //console.log(data);
-
-  const MouseStateToggle = (item: ContentTypes | null) => {
-    if (item !== null) {
-      setOnItem(true);
-      setCurrentData(item);
-    }
-    else {
-      setOnItem(false);
-    }
-  }
-
   //console.log(onItem);
-
   return (
     <>
     {/* <div className="row_prevent_vibrate">
@@ -40,21 +25,19 @@ export const Row = (param: ComponentParameters): any => {
     </div> */}
     <div className="row">
       <h1 className="row_title">{param.title}</h1>
-      <div className="row_poster_container">
+      <ScrollableContainer>
         {data.map((item) => {
-          return (
-            <div className={(param.isBackdrop === false)? "row_poster" : "row_backdrop_poster"}>
-              <img
-                className={(param.isBackdrop === false)? "row_poster_img" : "row_backdrop_poster_img"}
-                src={`${IMG_BASE_URL}${(param.isBackdrop === false) ? item.poster_path : item.backdrop_path }`}
-                alt={item.original_title} 
-                // onMouseOver={() => MouseStateToggle(item)}
-                // onMouseOut= {() => MouseStateToggle(null)}
-              />
-            </div>
-          );
-        })}
-      </div>
+            return (
+              <div className={(param.isBackdrop === false)? "row_poster" : "row_backdrop_poster"}>
+                <img
+                  className={(param.isBackdrop === false)? "row_poster_img" : "row_backdrop_poster_img"}
+                  src={`${IMG_BASE_URL}${(param.isBackdrop === false) ? item.poster_path : item.backdrop_path }`}
+                  alt={item.original_title} 
+                />
+              </div>
+            );
+          })}
+      </ScrollableContainer>
     </div>
     </>
   );
