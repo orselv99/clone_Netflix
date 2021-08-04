@@ -29,9 +29,9 @@ export const Row = (param: ComponentParameters): any => {
         {data.map((item) => {
             console.log(item.id);
             return (
-              <div className={(param.isBackdrop === false)? "row_poster" : "row_backdrop_poster"}>
+              <div className={(param.isBackdrop === false)? "row_poster" : "row_poster_backdrop"}>
                 <img
-                  className={(param.isBackdrop === false)? "row_poster_img" : "row_backdrop_poster_img"}
+                  className={(param.isBackdrop === false)? "row_poster_img" : "row_poster_backdrop_img"}
                   src={`${IMG_BASE_URL}${(param.isBackdrop === false) ? item.poster_path : item.backdrop_path }`}
                   alt={item.original_title} 
                   key={item.id}
