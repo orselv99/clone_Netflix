@@ -2,40 +2,31 @@ import React, { useState, useEffect } from "react";
 import { useRef } from "react";
 import "./ScrollableContainer.css";
 
-type ScrollPosition = {
-  top?: number;
-  left?: number;
-  x: number;
-  y: number;
-}
-
 export const ScrollableContainer = (props: { children: React.ReactNode }) => {
-  const [pos, setPos] = useState<ScrollPosition>();
+  const [pos, setPos] = useState<number>(0);
+  const [drag, setDrag] = useState<boolean>(false);
   const container = useRef<HTMLDivElement>(null);
-  console.log(container);
-
+  
   const mouseDownHandler = (event: React.MouseEvent) => {
-    setPos({
-      top: container.current?.scrollTop,
-      left: container.current?.scrollLeft,
-      x: event.clientX,
-      y: event.clientY,
-    });
-    
+    if (container.current !== null) {
+      event.preventDefault();
+      setDrag(true);
+      setPos(event.pageX + container.current?.scrollLeft);  
+    }
   }
   const mouseUpHandler = () => {
-    
+    if (container.current) {
+      setDrag(false);
+    }
   }
   const mouseMoveHandler = (event: React.MouseEvent) => {
-    if (typeof pos !== "undefined") {
-      const dx = event.clientX - pos?.x;
-      const dy = event.clientY - pos?.y;
-
-      // container.scrollTop = pos.top - dy;
-      // container.scrollLeft = pos.left - dx;
+    if (drag === true) {
+      if (container.current !== null) {
+        // 직접접근이 안되는데 이유를 찾아보자
+        const target = container.current;
+        target.scrollLeft = pos - event.pageX;
+      }
     }
-    
-
   }
 
   return (
