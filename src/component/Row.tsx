@@ -27,14 +27,15 @@ export const Row = (param: ComponentParameters): any => {
       <h1 className="row_title">{param.title}</h1>
       <ScrollableContainer>
         {data.map((item) => {
-            console.log(item.id);
             return (
-              <div className={(param.isBackdrop === false)? "row_poster" : "row_poster_backdrop"}>
+              <div 
+                className={(param.isBackdrop === false)? "row_poster" : "row_poster_backdrop"}
+                key={item.id}
+              >
                 <img
                   className={(param.isBackdrop === false)? "row_poster_img" : "row_poster_backdrop_img"}
                   src={`${IMG_BASE_URL}${(param.isBackdrop === false) ? item.poster_path : item.backdrop_path }`}
                   alt={item.original_title} 
-                  key={item.id}
                 />
               </div>
             );

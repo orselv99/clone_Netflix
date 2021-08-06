@@ -5,8 +5,6 @@
   padding: 20px;
   height: 30px;
   z-index: 1;
-
-
   transition-timing-function: ease-in;
   transition: all 0.5s;
 }
@@ -19,25 +17,16 @@
   width: 100px;
   object-fit: contain;
 }
-.navigator_list {
-  display: flex;
+.navigator_favorite {
   position: fixed;
-  list-style: none;
-  right: 20px;
-  object-fit: contain;
-  width: 100%;
+  right: 70px;
+  width: 30px;
   height: 30px;
   filter: contrast(0)
 }
-
-/* .navigator_menu_center {
-  position: fixed;
-  left: 200px;
-  object-fit: contain;
-}
-.navigator_menu_right {
+.navigator_user {
   position: fixed;
   right: 20px;
-  object-fit: contain;
-} */
-
+  width: 30px;
+  height: 30px;
+}

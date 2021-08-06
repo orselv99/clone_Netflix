@@ -28,8 +28,12 @@ export const Navigator = () => {
       />
       <div>
         <img 
-          className="navigator_list"
-          src="https://image.flaticon.com/icons/png/512/633/633816.png"
+            className="navigator_favorite"
+            src="https://image.flaticon.com/icons/png/512/102/102280.png" 
+        />
+        <img 
+            className="navigator_user"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" 
         />
       </div>
     </div>

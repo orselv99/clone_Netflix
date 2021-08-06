@@ -11,7 +11,7 @@ export const Banner = (param: ComponentParameters) => {
       const request = await axiosInstance.get(param.fetchURL);
       //console.log(request.data.results);
       // topRated 컨텐츠 중에서 랜덤으로 하나를 배너로 만들자
-      const index = Math.floor(Math.random() * request.data.results.length -1);
+      const index = Math.floor(Math.random() * request.data.results.length);
       setData(request.data.results[index]);
       return request;
      };
@@ -21,12 +21,18 @@ export const Banner = (param: ComponentParameters) => {
 
   //console.log(data);
 
-  const truncate = (data?: string, maxLength?: number) => {
+  const truncate = (value?: string, maxLength?: number) => {
     // description 이 너무 크면 maxlength 만큼 자르고 ... 붙이기
-    if ((typeof(data) === "undefined") || (typeof(maxLength) === "undefined")) {
-      return data;
+    if ((typeof(value) === "undefined") || (typeof(maxLength) === "undefined")) {
+      return value;
     }
-    return ((data?.length > maxLength) ? data.substr(0, maxLength - 1) + "..." : data);
+    return ((value?.length > maxLength) ? value.substr(0, maxLength - 1) + "..." : value);
+  }
+
+  let background = "";
+  if (data) {
+    background = IMG_BASE_URL + data?.backdrop_path;
+    //console.log(background);
   }
 
   return (
@@ -35,7 +41,7 @@ export const Banner = (param: ComponentParameters) => {
       className="banner_img"
       style={{
         backgroundSize: "cover",
-        backgroundImage: `url(${IMG_BASE_URL}${data?.backdrop_path})`,
+        backgroundImage: `url(${background})`,
         backgroundPosition: "center center"
       }}
     >
