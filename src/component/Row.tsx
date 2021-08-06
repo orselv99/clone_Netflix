@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ContextType } from "react";
 import { axiosInstance, IMG_BASE_URL } from "../service";
 import { ComponentParameters, ContentTypes } from "../type";
 import { ScrollableContainer } from "./ScrollableContainer"
 import "./Row.css";
+import { AddFavorite } from "../page/Favorite";
 
 export const Row = (param: ComponentParameters): any => {
   const [data, setData] = useState<ContentTypes[]>([]);
@@ -16,6 +17,13 @@ export const Row = (param: ComponentParameters): any => {
 
      getItems();
   }, [param.fetchURL]);
+
+  const clickHandler = (id: number) => {
+    //console.log(id);
+    const item = data.filter((value) => (value.id === id));
+    console.log(item);
+    AddFavorite(item[0]);
+  }
 
   //console.log(onItem);
   return (
@@ -36,6 +44,7 @@ export const Row = (param: ComponentParameters): any => {
                   className={(param.isBackdrop === false)? "row_poster_img" : "row_poster_backdrop_img"}
                   src={`${IMG_BASE_URL}${(param.isBackdrop === false) ? item.poster_path : item.backdrop_path }`}
                   alt={item.original_title} 
+                  onClick={() => clickHandler(item.id)}
                 />
               </div>
             );
