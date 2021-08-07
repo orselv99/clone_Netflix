@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { axiosInstance, IMG_BASE_URL } from '../service';
 import { ComponentParameters, ContentTypes } from '../type';
 import { ScrollableContainer } from './ScrollableContainer';
-import './Items.css';
 import { Modal } from './Modal';
 import styled from 'styled-components';
 
