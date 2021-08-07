@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ContextType } from 'react';
+import React, { useState, useEffect } from 'react';
 import { axiosInstance, IMG_BASE_URL } from '../service';
 import { ComponentParameters, ContentTypes } from '../type';
 import { ScrollableContainer } from './ScrollableContainer';

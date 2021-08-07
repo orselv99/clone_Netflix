@@ -1,5 +1,4 @@
 import React from 'react';
-import { Navigator } from '../component';
 import { ContentTypes } from '../type';
 
 const TEMP_FAVORITE: ContentTypes[] = [];
