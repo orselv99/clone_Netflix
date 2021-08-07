@@ -3,8 +3,45 @@ import { axiosInstance, IMG_BASE_URL } from '../service';
 import { ComponentParameters, ContentTypes } from '../type';
 import { ScrollableContainer } from './ScrollableContainer';
 import './Items.css';
-import { AddFavorite } from '../page/Favorite';
 import { Modal } from './Modal';
+import styled from 'styled-components';
+
+const ItemsTitle = styled.h1`
+    margin-left: 40px;
+    padding-bottom: 10px;
+    color: white;
+`;
+const ItemPoster = styled.div`
+    height: 320px;
+`;
+const ItemPosterImage = styled.img`
+    object-fit: contain;
+    width: 200px;
+    height: 300px;
+    padding: 10px;
+    transition: transform 450ms;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+`;
+const ItemPosterBackdrop = styled.div`
+    width: 300px;
+    height: 200px;
+    margin-right: 10px;
+`;
+const ItemPosterBackdropImage = styled.img`
+    object-fit: contain;
+    width: 300px;
+    height: 170px;
+    border-radius: 20px;
+    padding: 10px;
+    transition: transform 450ms;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+`;
 
 export const Items = (param: ComponentParameters): any => {
     const [data, setData] = useState<ContentTypes[]>([]);
@@ -31,36 +68,39 @@ export const Items = (param: ComponentParameters): any => {
     //console.log(onItem);
     return (
         <>
-            {/* <div className="row_prevent_vibrate">
-      {onItem === true && <Detail item={currentData}/>}
-    </div> */}
             <div>
-                <h1 className='items_title'>{param.title}</h1>
+                <ItemsTitle>{param.title}</ItemsTitle>
                 <ScrollableContainer>
                     {data.map((item, index) => {
                         return (
-                            <div
-                                className={
-                                    param.isBackdrop === false
-                                        ? 'items_poster'
-                                        : 'items_poster_backdrop'
-                                }
-                                key={item.id}>
-                                <img
-                                    className={
-                                        param.isBackdrop === false
-                                            ? 'items_poster_img'
-                                            : 'items_poster_backdrop_img'
-                                    }
-                                    src={`${IMG_BASE_URL}${
-                                        param.isBackdrop === false
-                                            ? item.poster_path
-                                            : item.backdrop_path
-                                    }`}
-                                    alt={item.original_title}
-                                    onClick={() => clickHandler(item, index)}
-                                />
-                            </div>
+                            <>
+                                {param.isBackdrop === false ? (
+                                    <ItemPoster key={item.id}>
+                                        <ItemPosterImage
+                                            src={
+                                                IMG_BASE_URL + item.poster_path
+                                            }
+                                            alt={item.original_title}
+                                            onClick={() =>
+                                                clickHandler(item, index)
+                                            }
+                                        />
+                                    </ItemPoster>
+                                ) : (
+                                    <ItemPosterBackdrop key={item.id}>
+                                        <ItemPosterBackdropImage
+                                            src={
+                                                IMG_BASE_URL +
+                                                item.backdrop_path
+                                            }
+                                            alt={item.original_title}
+                                            onClick={() =>
+                                                clickHandler(item, index)
+                                            }
+                                        />
+                                    </ItemPosterBackdrop>
+                                )}
+                            </>
                         );
                     })}
                 </ScrollableContainer>
