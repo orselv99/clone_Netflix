@@ -1,9 +1,9 @@
-import React from "react";
-export const Detail = () => {
-  // dummy
-  return (
-    <div></div>
-  );
+import React from 'react';
+import './Modal.css';
+
+export const Modal = () => {
+    // dummy
+    return <div className='modal'>안녕하시유</div>;
 };
 
 // import { useState, useEffect } from "react";
@@ -14,7 +14,7 @@ export const Detail = () => {
 //   useEffect(() => {
 //     const MouseMoveHandler: any = (event: MouseEvent) => {
 //       setMousePoint({
-//         x: event.clientX, 
+//         x: event.clientX,
 //         y: event.clientY
 //       });
 //     };
@@ -22,7 +22,7 @@ export const Detail = () => {
 //     //console.log(position);
 //     return () => window.removeEventListener("mousemove", MouseMoveHandler);
 //   }, [props]);
- 
+
 //   if (typeof props === "undefined") {
 //     return null;
 //   }
@@ -41,9 +41,9 @@ export const Detail = () => {
 //       zIndex: "1",
 //       backgroundColor: "white",
 //       borderRadius: "5px",
-//     }; 
+//     };
 //   }
-  
+
 //   return (
 //     <div className="detail" style={style}>
 //       {props.item?.original_title}
@@ -64,4 +64,3 @@ export const Detail = () => {
 //     </div>
 //   );
 // }
-

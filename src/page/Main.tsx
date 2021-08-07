@@ -1,17 +1,24 @@
-import React from "react";
-import { Banner, Navigator, Row } from "../component";
-import { FETCH } from "../service";
+import React from 'react';
+import { Banner, Items } from '../component';
+import { FETCH } from '../service';
 
 export const Main = () => {
-  return (
-    <div>
-      <Navigator />
-      <Banner fetchURL={FETCH.topRated} isBackdrop={true} />
-      <Row title="Trending" fetchURL={FETCH.trending} isBackdrop={false} />
-      <Row title="Top Rated" fetchURL={FETCH.topRated} isBackdrop={true} />
-      <Row title="Action" fetchURL={FETCH.action} isBackdrop={true} />
-      <Row title="Horror" fetchURL={FETCH.horror} isBackdrop={true} />
-      <Row title="Comedy" fetchURL={FETCH.comedy} isBackdrop={true} />
-    </div>
-  );
-}
+    return (
+        <div>
+            <Banner fetchURL={FETCH.topRated} isBackdrop={true} />
+            <Items
+                title='Trending'
+                fetchURL={FETCH.trending}
+                isBackdrop={false}
+            />
+            <Items
+                title='Top Rated'
+                fetchURL={FETCH.topRated}
+                isBackdrop={true}
+            />
+            <Items title='Action' fetchURL={FETCH.action} isBackdrop={true} />
+            <Items title='Horror' fetchURL={FETCH.horror} isBackdrop={true} />
+            <Items title='Comedy' fetchURL={FETCH.comedy} isBackdrop={true} />
+        </div>
+    );
+};

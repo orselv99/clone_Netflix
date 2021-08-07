@@ -1,11 +1,11 @@
 .scrollableContainer {
-  display: flex;
-  overflow-y: hidden;
-  overflow-x: scroll;
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
 
-  margin-left: 30px;
-  cursor: pointer;
+    margin-left: 30px;
+    cursor: pointer;
 }
 .scrollableContainer::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
