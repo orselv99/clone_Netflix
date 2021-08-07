@@ -9,6 +9,7 @@ import { Modal } from './Modal';
 export const Items = (param: ComponentParameters): any => {
     const [data, setData] = useState<ContentTypes[]>([]);
     const [modal, setModal] = useState<boolean>(false);
+    const [currentData, setCurrentData] = useState<ContentTypes>();
     useEffect(() => {
         const getItems = async () => {
             const request = await axiosInstance.get(param.fetchURL);
@@ -20,11 +21,10 @@ export const Items = (param: ComponentParameters): any => {
         getItems();
     }, [param.fetchURL]);
 
-    const clickHandler = (id: number) => {
-        //console.log(id);
-        const item = data.filter((value) => value.id === id);
-        console.log(item);
-        AddFavorite(item[0]);
+    const clickHandler = (item: ContentTypes, index: number) => {
+        //console.log(item);
+        //AddFavorite(item);
+        setCurrentData(item);
         setModal(!modal);
     };
 
@@ -37,7 +37,7 @@ export const Items = (param: ComponentParameters): any => {
             <div>
                 <h1 className='items_title'>{param.title}</h1>
                 <ScrollableContainer>
-                    {data.map((item) => {
+                    {data.map((item, index) => {
                         return (
                             <div
                                 className={
@@ -58,13 +58,13 @@ export const Items = (param: ComponentParameters): any => {
                                             : item.backdrop_path
                                     }`}
                                     alt={item.original_title}
-                                    onClick={() => clickHandler(item.id)}
+                                    onClick={() => clickHandler(item, index)}
                                 />
-                                {modal === true && <Modal></Modal>}
                             </div>
                         );
                     })}
                 </ScrollableContainer>
+                {modal === true && <Modal item={currentData}></Modal>}
             </div>
         </>
     );

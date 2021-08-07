@@ -25,3 +25,6 @@ export type MousePoint = {
     x: number;
     y: number;
 };
+export type StyledProps = {
+    imageURL: string;
+};

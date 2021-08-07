@@ -18,4 +18,4 @@ export const FETCH = {
     romance: `/tdiscover/movie?api_key=${API_KEY}&with_genres=10749&language="ko"`,
 };
 
-export const IMG_BASE_URL = 'https://image.tmdb.org/t/p/original/';
+export const IMG_BASE_URL = 'https://image.tmdb.org/t/p/original';
