@@ -1,6 +1,6 @@
 ##  Netflix 클론 프로젝트
 - javascript/typescript, css
-- react, axios
+- react, react-router-dom, axios, styled-component
 - api from tmdb (https://www.themoviedb.org/)
 - logo/icons from wiki and somewhere
 
