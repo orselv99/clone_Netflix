@@ -1,6 +1,18 @@
 import React, { useState } from 'react';
 import { useRef } from 'react';
-import './ScrollableContainer.css';
+import styled from 'styled-components';
+
+const Container = styled.div`
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    margin-left: 30px;
+    cursor: pointer;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+`;
 
 export const ScrollableContainer = (props: { children: React.ReactNode }) => {
     const [pos, setPos] = useState<number>(0);
@@ -30,13 +42,12 @@ export const ScrollableContainer = (props: { children: React.ReactNode }) => {
     };
 
     return (
-        <div
-            className='scrollableContainer'
+        <Container
             onMouseDown={mouseDownHandler}
             onMouseUp={mouseUpHandler}
             onMouseMove={mouseMoveHandler}
             ref={container}>
             {props.children}
-        </div>
+        </Container>
     );
 };
